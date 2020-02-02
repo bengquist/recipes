@@ -40,7 +40,7 @@ const Image = styled.img`
 `;
 
 const Info = styled.div`
-  transition: 0.8s;
+  transition: 1s ease-in-out;
   position: absolute;
   top: 0;
   bottom: 0;
