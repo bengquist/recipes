@@ -1,7 +1,7 @@
 import * as React from "react";
 import Layout from "../components/Layout";
 import { NextPage } from "next";
-import RecipeList from "../components/RecipeList";
+import RecipeList from "../components/recipe/RecipeList";
 import { useQuery } from "@apollo/react-hooks";
 import RECIPES_QUERY from "../graphql/recipes.query";
 

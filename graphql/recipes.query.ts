@@ -5,6 +5,9 @@ const RECIPES_QUERY = gql`
     recipes(query: $query) {
       items {
         recipe {
+          cautions
+          image
+          calories
           label
           ingredients {
             text
