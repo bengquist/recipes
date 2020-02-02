@@ -7,6 +7,7 @@ export type Recipe = {
   calories: number;
   label: string;
   ingredients: Ingredient[];
+  totalTime: number;
 };
 
 type Ingredient = {

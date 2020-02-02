@@ -8,7 +8,7 @@ import RECIPES_QUERY from "../graphql/recipes.query";
 const IndexPage: NextPage = () => {
   const [query, setQuery] = React.useState("");
   const { data, loading, error } = useQuery(RECIPES_QUERY, {
-    variables: { query: "chicken" }
+    variables: { query: "chocolate chip" }
   });
 
   if (loading) {

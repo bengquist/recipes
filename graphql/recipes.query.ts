@@ -9,6 +9,7 @@ const RECIPES_QUERY = gql`
           image
           calories
           label
+          totalTime
           ingredients {
             text
             weight
