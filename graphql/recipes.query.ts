@@ -1,12 +1,19 @@
 import { gql } from "apollo-boost";
 
-const JOBS_QUERY = gql`
-  query Jobs {
-    jobs {
-      id
-      title
+const RECIPES_QUERY = gql`
+  query getRecipes($query: String!) {
+    recipes(query: $query) {
+      items {
+        recipe {
+          label
+          ingredients {
+            text
+            weight
+          }
+        }
+      }
     }
   }
 `;
 
-export default JOBS_QUERY;
+export default RECIPES_QUERY;

@@ -1,17 +1,33 @@
 import * as React from "react";
-import Link from "next/link";
 import Layout from "../components/Layout";
 import { NextPage } from "next";
+import RecipeList from "../components/RecipeList";
+import { useQuery } from "@apollo/react-hooks";
+import RECIPES_QUERY from "../graphql/recipes.query";
 
 const IndexPage: NextPage = () => {
+  const [query, setQuery] = React.useState("");
+  const { data, loading, error } = useQuery(RECIPES_QUERY, {
+    variables: { query: "chicken" }
+  });
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {JSON.stringify(error)}</p>;
+  }
+
   return (
-    <Layout title="Home | Next.js + TypeScript Example">
-      <h1>Hello Next.js 👋</h1>
-      <p>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
-      </p>
+    <Layout title="Search Recipes">
+      <h1>Search for a recipe!</h1>
+      <input
+        value={query}
+        onChange={e => setQuery(e.target.value)}
+        type="text"
+      />
+      <RecipeList recipes={data.recipes.items} />
     </Layout>
   );
 };
